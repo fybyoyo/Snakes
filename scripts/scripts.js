@@ -6,7 +6,7 @@ async function readCounty(url) {
   console.log(datacnty);
 
    
-   /* console.log(datacnty.name);
+    console.log(datacnty.name);
 
 
 
@@ -19,7 +19,7 @@ async function readCounty(url) {
   for (var i=0; i<datacnty.neighborsnakeids.length; i++) {
     console.log(datacnty.neighborsnakeids[i]);
   };
- */
+
 
 
 
