@@ -3,7 +3,7 @@ async function readCounty(url)
     // const url='./data.json';
 
 
-
+    console.log('from scripts ' + url);
 
   const responsecnty = await fetch(url);
   const datacnty=await responsecnty.json(); 
