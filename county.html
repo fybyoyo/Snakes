@@ -33,16 +33,24 @@ location.search.slice(1).split("&").forEach(function(pair)
   const pathname = window.location.pathname;
   const search = window.location.search;
   const hash = window.location.hash;
-  const url=protocol +"//" + host + "/Snakes/data/counties/c" + countyGID + ".json";
+  //const url=protocol +"//" + host + "/Snakes/data/counties/c" + countyGID + ".json";
+
+  if (protocol=="https:") {
+   var url=protocol +"//" + host + "/Snakes/data/counties/c" + countyGID + ".json";
+  }
+  else {
+   var url=protocol +"//" + host + "/data/counties/c" + countyGID + ".json";
+  }
+  
 
   console.log(url);
-  /* 
-  console.log(protocol);
+ 
+  /* console.log(protocol);
   console.log(host);
   console.log(pathname);
   console.log(search);
   console.log(hash);
-  console.log(url); */
+  console.log(url);  */
 
 
    readCounty(url)
