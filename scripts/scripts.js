@@ -1,11 +1,11 @@
 async function readCounty(url) 
 {
-  
+    const url2='../data/counties/c1.json';
 
 
     console.log('from scripts ' + url);
 
-   const responsecnty = await fetch(url);
+   const responsecnty = await fetch(url2);
   const datacnty=await responsecnty.json(); 
 
   console.log(datacnty);
