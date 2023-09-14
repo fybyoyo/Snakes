@@ -1,11 +1,11 @@
 async function readCounty(url) 
 {
-    // const url='./data.json';
+  
 
 
     console.log('from scripts ' + url);
 
-  const responsecnty = await fetch(url);
+  /* const responsecnty = await fetch(url);
   const datacnty=await responsecnty.json(); 
 
   console.log(datacnty);
@@ -21,24 +21,11 @@ async function readCounty(url)
   for (var i=0; i<datacnty.neighborsnakeids.length; i++) {
     console.log(datacnty.neighborsnakeids[i]);
   }
+ */
 
 
 
 
-
-     //console.log(data[0].prices);
-   
-     /* document.getElementById(`${data[0].prices[0].id}`).textContent=data[0].prices[0].price;
-   
-     document.getElementById(`${data[0].prices[1].id}`).textContent=data[0].prices[1].price; */
-   
-     /* data.forEach(element => {
-       
-        element.prices.forEach(price => {
-         //console.log(price);
-         document.getElementById(`${price.id}`).textContent=price.price;
-         console.log(price);
-       });  */
 
 
      };
