@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>County</title>
+
+
+     <link rel="stylesheet" href="/css/county.css"> 
+     <script type = "text/javascript" src="./scripts/scripts.js"></script>  
+
+</head>
+<body>
+  
+ 
+
+
+
+<script>
+// https://stackoverflow.com/questions/36858508/how-to-send-a-parameter-in-html-link-and-how-to-retrieve-it
+var params = {};
+location.search.slice(1).split("&").forEach(function(pair) 
+{
+   var countyGID; 
+   pair = pair.split("=");
+   params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
+   var countyGID= decodeURIComponent(pair[1]); 
+  
+   const url='../data/counties/c' + countyGID + '.json';
+
+   readCounty(url);
+
+   
+});
+</script>
+
+
+
+<h1 id="countyname"></h1>
+
+
+</body>
+</html>
