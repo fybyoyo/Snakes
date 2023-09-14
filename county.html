@@ -27,7 +27,7 @@ location.search.slice(1).split("&").forEach(function(pair)
    var countyGID= decodeURIComponent(pair[1]); 
   
    const url='../data/counties/c' + countyGID + '.json';
-
+console.log('from county page ' + url);
    readCounty(url);
 
    
