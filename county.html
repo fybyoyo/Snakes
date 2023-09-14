@@ -26,7 +26,7 @@ location.search.slice(1).split("&").forEach(function(pair)
    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
    var countyGID= decodeURIComponent(pair[1]); 
 
-   
+  //https://www.freecodecamp.org/news/how-to-get-the-current-url-with-javascript/#:~:text=You%20can%20do%20this%20by,web%20page%20to%20the%20console. 
   const currentUrl = window.location.href;
   const protocol = window.location.protocol;
   const host = window.location.host;
@@ -35,7 +35,8 @@ location.search.slice(1).split("&").forEach(function(pair)
   const hash = window.location.hash;
   const url=protocol +"//" + host + "/data/counties/c" + countyGID + ".json";
 
-  /* console.log(currentUrl);
+  console.log(currentUrl);
+  /* 
   console.log(protocol);
   console.log(host);
   console.log(pathname);
