@@ -1,17 +1,15 @@
-async function readCounty(url) 
-{
-    const url2='../c1.json';
-
-   alert(url2);
-    console.log('from scripts ' + url2);
-
-   const responsecnty = await fetch(url2);
+async function readCounty(url) {
+   
+   const responsecnty = await fetch(url);
   const datacnty=await responsecnty.json(); 
 
   console.log(datacnty);
 
    
    console.log(datacnty.name);
+
+
+
   document.getElementById('countyname').innerText=datacnty.name;
    
   for (var i=0; i<datacnty.snakeids.length; i++) {
