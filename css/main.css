@@ -11,6 +11,10 @@
     box-sizing: border-box;
   }
   
+body, html {
+  font-size: 100%;
+}
+
   /* Remove default margin */
   body,
   h1,
