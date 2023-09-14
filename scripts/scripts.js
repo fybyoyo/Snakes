@@ -1,6 +1,6 @@
 async function readCounty(url) 
 {
-    const url2='../data/counties/c1.json';
+    const url2='./c1.json';
 
 
     console.log('from scripts ' + url2);
