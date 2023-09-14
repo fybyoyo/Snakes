@@ -19,12 +19,27 @@ async function readCounty(url) {
   for (var i=0; i<datacnty.neighborsnakeids.length; i++) {
     console.log(datacnty.neighborsnakeids[i]);
   };
+}
+
+
+function readCounty2(url) {
+
+
+  fetch(url)
+.then((response) => response.json())
+.then((result) => { console.log(result); })
+
+
+
+
+}
 
 
 
 
 
 
-
-     }
    
+   
+
+     
