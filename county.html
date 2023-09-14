@@ -26,10 +26,23 @@ location.search.slice(1).split("&").forEach(function(pair)
    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
    var countyGID= decodeURIComponent(pair[1]); 
 
-  
-  // const url='../data/counties/c' + countyGID + '.json';
+   
+  const currentUrl = window.location.href;
+  const protocol = window.location.protocol;
+  const host = window.location.host;
+  const pathname = window.location.pathname;
+  const search = window.location.search;
+  const hash = window.location.hash;
+  const url=protocol +"//" + host + "/data/counties/c" + countyGID + ".json";
 
-  const url="https://fybyoyo.github.io/Snakes/data/counties/c1.json";
+  /* console.log(currentUrl);
+  console.log(protocol);
+  console.log(host);
+  console.log(pathname);
+  console.log(search);
+  console.log(hash);
+  console.log(url); */
+
 
    readCounty(url)
    
