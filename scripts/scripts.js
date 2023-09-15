@@ -1,10 +1,10 @@
-async function readCounty(countyurl,snakepath) {
+async function readCounty(countyGID,countyurl,snakepath) {
    
   const responsecnty = await fetch(countyurl);
   const datacnty=await responsecnty.json(); 
 
  
-  document.getElementById('countyname').innerText=datacnty.name + " County";
+  
    
   const snakegrid=document.getElementById('snake-grid');
   const snakegridnearby=document.getElementById('snake-grid-nearby');
@@ -13,11 +13,27 @@ async function readCounty(countyurl,snakepath) {
   const datasnakes=await responsesnakes.json(); 
 
 
+  if (countyGID==0) {
+    document.getElementById('countyname').innerText="All Species Found in " + datacnty.name ;
+  }
+  else {
+    document.getElementById('countyname').innerText=datacnty.name + " County";
+  }
   
 
-   for (var i=0; i<datacnty.snakeids.length; i++) {
 
-    //console.log(datacnty.snakeids[i]);
+  const nearbytitle=document.getElementById('nearby');
+  if (datacnty.neighborsnakeids.length==0) {
+    nearbytitle.innerText="";
+  }
+
+
+  // for (var i=0; i<datacnty.snakeids.length; i++) {
+    for (var i = datacnty.snakeids.length-1; i >= 0; i--) {
+    var searchIndex = datasnakes.findIndex((snk) => snk.id==datacnty.snakeids[i]);
+   
+    
+
 
    var newDiv=document.createElement("div");
    newDiv.className="card stacked";
@@ -25,27 +41,22 @@ async function readCounty(countyurl,snakepath) {
    newA.href="snake.html?ID=" + datacnty.snakeids[i];
    var newImg=document.createElement("img");
 
-   newImg.alt=datasnakes[datacnty.snakeids[i]-1].name;
-   if (datasnakes[datacnty.snakeids[i]-1].alt=="NA") {
-    newImg.title=datasnakes[datacnty.snakeids[i]-1].name;
+   newImg.alt=datasnakes[searchIndex].name;
+   if (datasnakes[searchIndex].attrib=="NA") {
+    newImg.title=datasnakes[searchIndex].name;
   }
   else {
-    newImg.title=datasnakes[datacnty.snakeids[i]-1].alt;
+    newImg.title=datasnakes[searchIndex].attrib;
   }
-  if (datasnakes[datacnty.snakeids[i]-1].picture=="NA") {
+  if (datasnakes[searchIndex].picture=="NA") {
     newImg.src="https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
   }
   else {
-    newImg.src=datasnakes[datacnty.snakeids[i]-1].picture;
+    newImg.src=datasnakes[searchIndex].picture;
   }
 
    newImg.className="card__img";
 
-
-  
-
- 
-   
   
    newA.appendChild(newImg);
 
@@ -57,27 +68,27 @@ async function readCounty(countyurl,snakepath) {
    cardcontent.className="card__content";
    var cardtitle=document.createElement("h2");
    cardtitle.className="card__title";
-   cardtitle.innerText=datasnakes[datacnty.snakeids[i]-1].name;
+   cardtitle.innerText=datasnakes[searchIndex].name;
    cardcontent.appendChild(cardtitle);
    var cardprice=document.createElement("p");
    cardprice.className="card__price";
 
 
 
-   if (datasnakes[datacnty.snakeids[i]-1].numsubspecies>0) {
-   // cardprice.innerText=datasnakes[datacnty.snakeids[i]].species + " (" + datasnakes[datacnty.snakeids[i]].numsubspecies + " subspecies)" ;
-    cardprice.innerHTML=datasnakes[datacnty.snakeids[i]-1].species + "<br> (" + datasnakes[datacnty.snakeids[i]-1].numsubspecies + " subspecies)" ;
+   if (datasnakes[searchIndex].numsubspecies>0) {
+   // cardprice.innerText=datasnakes[datacnty.snakeids[i]].species + " (" + datasnakes[searchIndex].numsubspecies + " subspecies)" ;
+    cardprice.innerHTML=datasnakes[searchIndex].species + "<br> (" + datasnakes[searchIndex].numsubspecies + " subspecies)" ;
     
    }
    else {
-    cardprice.innerText=datasnakes[datacnty.snakeids[i]-1].species;
+    cardprice.innerText=datasnakes[searchIndex].species;
    }
    
    cardcontent.appendChild(cardprice);
 
    var carddescription=document.createElement("p");
 
-  if (carddescription.innerText=datasnakes[datacnty.snakeids[i]-1].medical=="Venomous") {
+  if (carddescription.innerText=datasnakes[searchIndex].medical=="Venomous") {
     carddescription.className="card__description dangerous";
   }
   else {
@@ -85,14 +96,14 @@ async function readCounty(countyurl,snakepath) {
   }
    
 
-   carddescription.innerText=datasnakes[datacnty.snakeids[i]-1].medical;
+   carddescription.innerText=datasnakes[searchIndex].medical;
    cardcontent.appendChild(carddescription);
 
    newA2.appendChild(cardcontent);
 
    newDiv.appendChild(newA2);
 
-   snakegrid.appendChild(newDiv);
+   snakegrid.appendChild(newDiv); 
 
 
   };
@@ -101,33 +112,37 @@ async function readCounty(countyurl,snakepath) {
 
 
 
-
-
-
-  for (var i=0; i<datacnty.neighborsnakeids.length; i++) {
    
-  console.log(datacnty.neighborsnakeids[i]);
 
 
-var newDiv=document.createElement("div");
+  //for (var i=0; i<datacnty.neighborsnakeids.length; i++) 
+  for (var i = datacnty.neighborsnakeids.length-1; i >= 0; i--)  {
+
+    var searchIndex = datasnakes.findIndex((snk) => snk.id==datacnty.neighborsnakeids[i]);
+
+  
+
+
+ var newDiv=document.createElement("div");
    newDiv.className="card stacked";
    var newA=document.createElement("a");
    newA.href="snake.html?ID=" + datacnty.neighborsnakeids[i];
    var newImg=document.createElement("img");
 
-    newImg.alt=datasnakes[datacnty.neighborsnakeids[i]-1].name;
-  if (datasnakes[datacnty.snakeids[i]-1].alt=="NA") {
-    newImg.title=datasnakes[datacnty.neighborsnakeids[i]-1].name;
+   newImg.alt=datasnakes[searchIndex].name;
+  
+   if (datasnakes[searchIndex].attrib=="NA") {
+    newImg.title=datasnakes[searchIndex].name;
   }
   else {
-    newImg.title=datasnakes[datacnty.neighborsnakeids[i]-1].alt;
+    newImg.title=datasnakes[searchIndex].attrib;
   }
 
-  if (datasnakes[datacnty.neighborsnakeids[i]-1].picture=="NA") {
+  if (datasnakes[searchIndex].picture=="NA") {
     newImg.src="https://eagle-sensors.com/wp-content/uploads/unavailable-image.jpg";
   }
   else {
-    newImg.src=datasnakes[datacnty.neighborsnakeids[i]-1].picture;
+    newImg.src=datasnakes[searchIndex].picture;
   }
 
    
@@ -146,27 +161,27 @@ var newDiv=document.createElement("div");
    cardcontent.className="card__content";
    var cardtitle=document.createElement("h2");
    cardtitle.className="card__title";
-   cardtitle.innerText=datasnakes[datacnty.neighborsnakeids[i]-1].name;
+   cardtitle.innerText=datasnakes[searchIndex].name;
    cardcontent.appendChild(cardtitle);
    var cardprice=document.createElement("p");
    cardprice.className="card__price";
 
 
 
-   if (datasnakes[datacnty.neighborsnakeids[i]-1].numsubspecies>0) {
-   // cardprice.innerText=datasnakes[datacnty.snakeids[i]].species + " (" + datasnakes[datacnty.snakeids[i]].numsubspecies + " subspecies)" ;
-    cardprice.innerHTML=datasnakes[datacnty.neighborsnakeids[i]-1].species + "<br> (" + datasnakes[datacnty.neighborsnakeids[i]-1].numsubspecies + " subspecies)" ;
+   if (datasnakes[searchIndex].numsubspecies>0) {
+   // cardprice.innerText=datasnakes[datacnty.snakeids[i]].species + " (" + datasnakes[searchIndex].numsubspecies + " subspecies)" ;
+    cardprice.innerHTML=datasnakes[searchIndex].species + "<br> (" + datasnakes[searchIndex].numsubspecies + " subspecies)" ;
     
    }
    else {
-    cardprice.innerText=datasnakes[datacnty.neighborsnakeids[i]-1].species;
+    cardprice.innerText=datasnakes[searchIndex].species;
    }
    
    cardcontent.appendChild(cardprice);
 
    var carddescription=document.createElement("p");
 
-  if (carddescription.innerText=datasnakes[datacnty.neighborsnakeids[i]-1].medical=="Venomous") {
+  if (carddescription.innerText=datasnakes[searchIndex].medical=="Venomous") {
     carddescription.className="card__description dangerous";
   }
   else {
@@ -174,7 +189,7 @@ var newDiv=document.createElement("div");
   }
    
 
-   carddescription.innerText=datasnakes[datacnty.neighborsnakeids[i]-1].medical;
+   carddescription.innerText=datasnakes[searchIndex].medical;
    cardcontent.appendChild(carddescription);
 
    newA2.appendChild(cardcontent);
@@ -187,7 +202,7 @@ var newDiv=document.createElement("div");
 
   }; 
 
-
+ 
 
 
 }
