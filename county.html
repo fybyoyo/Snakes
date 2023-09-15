@@ -13,15 +13,12 @@
 <body>
   
  
-
- 
-
 <script>
 // https://stackoverflow.com/questions/36858508/how-to-send-a-parameter-in-html-link-and-how-to-retrieve-it
 var params = {};
 location.search.slice(1).split("&").forEach(function(pair) 
 {
-   var countyGID; 
+   
    pair = pair.split("=");
    params[decodeURIComponent(pair[0])] = decodeURIComponent(pair[1]);
    var countyGID= decodeURIComponent(pair[1]); 
@@ -57,13 +54,135 @@ location.search.slice(1).split("&").forEach(function(pair)
    
 });
 
-
-
 </script>
+<main>
+<h1 class="countyh1" id="countyname"></h1>
+<br>
+
+<div class="container">
+ 
+   <div class="product-grid" id="snake-grid">
+
+ 
+     <!-- 
+     <div class="card stacked">
+      <a href="snake.html?ID=1" >
+       <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/305828008/large.jpg" alt="" class="card__img"></a>
+       <a href="snake.html?ID=1"  >
+       <div class="card__content">
+         <h2 class="card__title">Concho River Snake</h2>
+         <p class="card__price">$105</p>
+         <p class="card__description">Non-Venomous</p>
+       </div>
+      </a>
+     </div>
+
+     <div class="card stacked">
+      <a href="https://inaturalist.ca/observations/13001649" target="_blank">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/18913342/large.jpeg" alt="" class="card__img">  </a>
+      <a href="https://inaturalist.ca/observations/13001649" target="_blank">
+      <div class="card__content">
+        <h2 class="card__title">Midland Water Snake</h2>
+        <p class="card__price">$105</p>
+        <p class="card__description">Non-Venomous</p>
+      </div>
+      </a>
+    </div>
+   
+    <div class="card stacked">
+      <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/37867574/medium.jpg" alt="" class="card__img"> </a>
+      <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+      <div class="card__content">
+        <h2 class="card__title">Mohave Rattlesnake</h2>
+        <p class="card__price">$105</p>
+        <p class="card__description">Venomous</p>
+      </div>
+      </a>
+    </div>
+
+    <div class="card stacked">
+      <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/86285937/large.jpeg" alt="" class="card__img"> </a>
+      <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+      <div class="card__content">
+        <h2 class="card__title">Mohave Rattlesnake</h2>
+        <p class="card__price">$105</p>
+        <p class="card__description">Venomous</p>
+      </div>
+      </a>
+    </div> -->
+
+  </div>
+
+ </div>
+
+<h2>Nearby Snake Species</h2>
+ 
+
+<div class="container">
+ 
+  <div class="product-grid" id="snake-grid-nearby">
+
+
+    
+    <div class="card stacked">
+     <a href="https://www.inaturalist.org/observations/171317116"  target="_blank">
+      <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/305828008/large.jpg" alt="" class="card__img"></a>
+      <a href="https://www.inaturalist.org/observations/171317116"  target="_blank">
+      <div class="card__content">
+        <h2 class="card__title">Concho River Snake</h2>
+        <p class="card__price">$105</p>
+        <p class="card__description">Non-Venomous</p>
+      </div>
+     </a>
+    </div>
+
+    <div class="card stacked">
+     <a href="https://inaturalist.ca/observations/13001649" target="_blank">
+     <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/18913342/large.jpeg" alt="" class="card__img">  </a>
+     <a href="https://inaturalist.ca/observations/13001649" target="_blank">
+     <div class="card__content">
+       <h2 class="card__title">Midland Water Snake</h2>
+       <p class="card__price">$105</p>
+       <p class="card__description">Non-Venomous</p>
+     </div>
+     </a>
+   </div>
+  
+   <div class="card stacked">
+     <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+     <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/37867574/medium.jpg" alt="" class="card__img"> </a>
+     <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+     <div class="card__content">
+       <h2 class="card__title">Mohave Rattlesnake</h2>
+       <p class="card__price">$105</p>
+       <p class="card__description">Venomous</p>
+     </div>
+     </a>
+   </div>
+
+   <div class="card stacked">
+     <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+     <img src="https://inaturalist-open-data.s3.amazonaws.com/photos/86285937/large.jpeg" alt="" class="card__img"> </a>
+     <a href="https://inaturalist.ca/taxa/30719-Crotalus-scutulatus" target="_blank">
+     <div class="card__content">
+       <h2 class="card__title">Mohave Rattlesnake</h2>
+       <p class="card__price">$105</p>
+       <p class="card__description">Venomous</p>
+     </div>
+     </a>
+   </div>
+
+</div>
+
+</div>
 
 
 
-<h1 id="countyname"></h1>
+</main>
+
+
 
 
 </body>

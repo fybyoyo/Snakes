@@ -25,6 +25,10 @@
     margin: 0;
   }
   
+  body, html {
+    font-size: 100%;
+  }
+
   h1,
   h2,
   h3,
@@ -32,6 +36,18 @@
     font-family: var(--ff-secondary);
   }
   
+
+h1 {
+  margin-top: -2rem;
+  text-align: center;
+}
+
+h2 {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
   /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
   ul[role="list"],
   ol[role="list"] {
@@ -86,9 +102,7 @@
     }
   }
   
-h1 {
-  text-align: center;
-}
+
 
 
   body {
@@ -115,40 +129,80 @@ h1 {
   
   .product-grid {
     display: grid;
-    gap: 0.125rem;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 0.05fr));
+    border: 0px solid rgb(9, 0, 128);
+  
+  
   }
   
   .card {
     aspect-ratio: 1 / 1.5;
-    /* border: 3px solid hotpink; */
+     border: 0px solid hotpink; 
+     
   }
   
-  /*this is the info block ontop of the card*/
+  /*this is the info block on top of the card*/
   .card__content {
     background: white; /*this is the background color of the info block ontop of the card*/
     align-self: end;
-    margin: 0.5rem 0.5rem 4rem;
-    padding: 0.5rem;
+    margin: 11.5rem 0.5rem 2rem;
+    padding-top: 0%;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    padding-bottom: 0.25rem;
+ 
     box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.1);
+    border: 0px solid hotpink; 
   }
   
   .card__title {
-    font-size: 1rem;
-    line-height: 1.1;
+    font-size: 0.5rem;
+    text-align: center;
     color: firebrick;
+  
   }
   
   .card__price {
-    font-size: .75rem;
+    font-size: .5rem;
+    
   }
   
+  .card__description {
+    font-size: .5rem;
+    
+  }
   .card__img {
     width: 100%;
     aspect-ratio: 1 / 1.25;
     object-fit: cover;
   }
   
+  div a:link {
+    text-decoration: none;
+    color: black;
+  }
+
+  div a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  div a:hover {
+    text-decoration: none;
+    color: black;
+  }
+
+  div a:active {
+    text-decoration: none;
+    color: black;
+  }
+
+  div a {
+    text-decoration: none;
+    color: black;
+  }
+
   @media (min-width: 60em) {
     .card__img {
       aspect-ratio: 1 / 1;
