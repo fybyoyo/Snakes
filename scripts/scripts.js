@@ -55,7 +55,35 @@ async function readCounty(countyGID,countyurl,snakepath) {
     newImg.src=datasnakes[searchIndex].picture;
   }
 
-   newImg.className="card__img";
+  
+  switch(datasnakes[searchIndex].shiftx) {
+    case "0":
+      newImg.className="card__img";
+      break;
+    case "-10":
+      newImg.className="card__img card__imgshift_10";
+      break;
+    case "-20":
+      newImg.className="card__img card__imgshift_20";
+      break;
+    case "-30":
+      newImg.className="card__img card__imgshift_30";
+      break;
+    case "-50":
+      newImg.className="card__img card__imgshift_50";
+      break;     
+    case "-60":
+      newImg.className="card__img card__imgshift_60";
+      break; 
+    case "-70":
+      newImg.className="card__img card__imgshift_70";
+      break;    
+    case "-90":
+      newImg.className="card__img card__imgshift_90";
+      break;
+  } 
+  
+   
 
   
    newA.appendChild(newImg);
@@ -145,10 +173,35 @@ async function readCounty(countyGID,countyurl,snakepath) {
     newImg.src=datasnakes[searchIndex].picture;
   }
 
-   
+  switch(datasnakes[searchIndex].shiftx) {
+    case "0":
+      newImg.className="card__img";
+      break;
+    case "-10":
+      newImg.className="card__img card__imgshift_10";
+      break;
+    case "-20":
+      newImg.className="card__img card__imgshift_20";
+      break;
+    case "-30":
+      newImg.className="card__img card__imgshift_30";
+      break;
+    case "-50":
+      newImg.className="card__img card__imgshift_50";
+      break;     
+    case "-60":
+      newImg.className="card__img card__imgshift_60";
+      break; 
+    case "-70":
+      newImg.className="card__img card__imgshift_70";
+      break;    
+    case "-90":
+      newImg.className="card__img card__imgshift_90";
+      break;
+  }  
 
 
-   newImg.className="card__img";
+  
 
 
    newA.appendChild(newImg);
