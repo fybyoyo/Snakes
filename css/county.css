@@ -138,7 +138,7 @@ h2 {
   
   .card {
     aspect-ratio: 1 / 1.5;
-     border: 0px solid hotpink; 
+    border: 0px solid hotpink; 
      
   }
   
@@ -146,14 +146,14 @@ h2 {
   .card__content {
     background: white; /*this is the background color of the info block ontop of the card*/
     align-self: end;
-    margin: 11.5rem 0.5rem 2rem;
+    margin: 9.0rem 0.5rem 2rem;
     padding-top: 0%;
     padding-left: 0.25rem;
     padding-right: 0.25rem;
     padding-bottom: 0.25rem;
  
     box-shadow: 0 0.25rem 1rem rgb(0 0 0 / 0.1);
-    border: 0px solid hotpink; 
+    border: 0px solid rgb(105, 255, 143); 
   }
   
   .card__title {
@@ -181,8 +181,32 @@ h2 {
 
   .card__img {
     width: 100%;
-    aspect-ratio: 1 / 1.25;
+    aspect-ratio: 1 / 1.0;
+  
     object-fit: cover;
+    
+  }
+
+  .card__imgshift_10 {
+    object-position: -10px 0px;
+  }
+  .card__imgshift_20 {
+    object-position: -20px 0px;
+  }
+  .card__imgshift_30 {
+    object-position: -30px 0px;
+  }
+  .card__imgshift_50 {
+    object-position: -50px 0px;
+  }
+  .card__imgshift_60 {
+    object-position: -60px 0px;
+  }
+  .card__imgshift_70 {
+    object-position: -70px 0px;
+  }
+  .card__imgshift_90 {
+    object-position: -90px 0px;
   }
   
   div a:link {
@@ -212,7 +236,7 @@ h2 {
 
   @media (min-width: 60em) {
     .card__img {
-      aspect-ratio: 1 / 1;
+       aspect-ratio: 1 / 1.0;
     }
   
     .card.featured {
@@ -221,7 +245,7 @@ h2 {
     }
   
     .card.featured .card__img {
-      aspect-ratio: 1 / 1.25;
+        aspect-ratio: 1 / 1.0;
     }
   
     .card.featured .card__title {
